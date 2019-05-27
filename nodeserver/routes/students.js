@@ -13,6 +13,12 @@ get = (req, res, next) => {
   })
 };
 
+getById = (req, res, next) => {
+  req.models.Student.findById(req.params.id).then((user) => {
+    return res.send(user);
+  })
+}
+
 post = (req, res, next) => {
   req.models.Student.create({
     name: req.body.name,
@@ -61,8 +67,21 @@ put = (req, res, next) => {
       })
 }
 
+deleteOneUser = (req, res, next) => {
+  req.models.Student.findByIdAndDelete(req.params.id).then((deleted) => {
+    if (deleted) {
+      return res.send(deleted).status(200)
+    }
+    res.sendStatus(204)
+  }).catch((error) => {
+    next(error)
+  })
+}
+
 module.exports = {
   get,
   post,
-  put
+  put,
+  getById,
+  deleteOneUser
 }
