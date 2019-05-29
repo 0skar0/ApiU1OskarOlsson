@@ -1,5 +1,28 @@
 # Api U1 Oskar Olsson
 
+## BongBong
+En applikation som hämtar studenter och visar dem i en tabell. Det går att ta bort (DELETE) en student och lägga till (POST) en student med hjälp av ett formulär.  
+
+Klona hela repot.  
+
+Kör kommandot inne i nodeserver-mappen
+
+```
+npm install
+npm run dev
+```
+För att starta Mongo-databasen
+```
+mongo
+use students
+```
+
+Kör kommandot inne i frontend-mappen
+```
+npm install
+npm start
+```
+
 ## Övningsfrågor
 
 **Hur används HTTP-protokollet när du surfar in på en websida? Beskriv vilken metod, path, URI, response code och body som skickas in och svarar.**  
