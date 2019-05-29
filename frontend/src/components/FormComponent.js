@@ -1,48 +1,19 @@
-import React, { Component, Fragment } from 'react';
-import Table from 'react-bootstrap/Table';
-import Button from 'react-bootstrap/Button'
-import styles from './styling.module.css';
+import React, { Component } from 'react';
 import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
+import styles from './styling.module.css';
 
-class TableComponent extends Component {
-  constructor(props){
-    super(props)
+class FormComponent extends Component {
+  constructor(props) {
+    super(props);
     this.state = {
-      students: null,
       email: '',
       name: '',
       ort: '',
       gata: '',
       postnummer: 0
     }
-  }
-
-  componentDidMount = () => {
-    fetch('http://localhost:2000/students')
-    .then((resp) => resp.json())
-    .then((response) => {
-      this.setState({
-        students: response
-      })
-    })
-  }
-
-  refreshTable = (id) => {
-    let studentsArr = this.state.students;
-    let newStudentArr = studentsArr.filter(student => student._id !== id)
-    this.setState({
-      students: newStudentArr
-    })
-  }
-
-  deleteOneUser = (id) => {
-    fetch('http://localhost:2000/students/' + id, {
-      method: 'DELETE',
-      headers: {'Content-Type':'application/json'},
-    }).then(() => {
-      this.refreshTable(id);
-    })
   }
 
   handleEvent = (e) => {
@@ -63,9 +34,7 @@ class TableComponent extends Component {
       },
       body: JSON.stringify(student)
     }).then((res) => {
-      this.setState(prevState => ({
-        students: [...prevState.students, student]
-      }))
+      res.ok ? alert('User created') : alert('Something went wrong')
     })
 
   }
@@ -75,38 +44,9 @@ class TableComponent extends Component {
       [inputVal.target.name]: inputVal.target.value
     })
   }
+
   render() {
-    const {students} = this.state;
-
-    if (!students) {
-      return <p>HEJHEJEJ</p>
-    }
-
     return(
-      <Fragment>
-        <div className={styles.tableWrapper}>
-          <h1>Welcome to BongBong!</h1>
-          <Table striped bordered hover variant="dark">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Address</th>
-                <th>Email</th>
-                <th>Delete User</th>
-              </tr>
-            </thead>
-            <tbody>
-              {students.map((student, i) =>
-                <tr key={i}>
-                  <td>{student.name}</td>
-                  <td>{student.address.gata + ', ' + student.address.ort}</td>
-                  <td>{student.email}</td>
-                  <td><Button variant="danger" onClick={() => this.deleteOneUser(student._id)}>Delete User</Button></td>
-                </tr>
-              )}
-            </tbody>
-          </Table>
-        </div>
 
         <div className={styles.divstyle}>
 
@@ -141,9 +81,9 @@ class TableComponent extends Component {
             </Button>
           </Form>
         </div>
-      </Fragment>
+
     )
   }
 }
 
-export default TableComponent;
+export default FormComponent;

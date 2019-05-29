@@ -1,0 +1,15 @@
+.tableWrapper {
+  width: 800px;
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
+.formStyle {
+  width: 600px;
+  margin-bottom: 20px;
+}
+
+.divstyle {
+  display: flex;
+  justify-content: center;
+}
