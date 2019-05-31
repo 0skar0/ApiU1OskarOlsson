@@ -1,7 +1,7 @@
 # Api U1 Oskar Olsson
 
 ## BongBong API
-En applikation som hämtar studenter och visar dem i en tabell. Det går att ta bort (DELETE) en student och lägga till (POST) en student med hjälp av ett formulär.  
+En applikation, byggd med en backend av Node/Express (Med en Mongo-databas) och en frontend med React, som hämtar studenter och visar dem i en tabell. Det går att ta bort (DELETE) en student och lägga till (POST) en student med hjälp av ett formulär.  
 
 Klona hela repot.  
 
@@ -36,16 +36,25 @@ När man surfar in på en webbsida skickar klienten (webbläsaren) en HTTP-förf
 **PATCH**: Skiljer sig från PUT genom att man kan ändra på delar av informationen i ett objekt. Om jag skickar endast skickar in ett nytt användarnamn (t.ex) kommer PATCH endast ändra på användarnamnet och låta övrig information vara som den var tidigare.  
 
 **"http://localhost:3000/users?username=something" är en URI, beskriv vilka delar den består av och vad de kallas.**  
-"http" är schemat.  
-"localhost:3000" är authorityn.  
-"/users" är pathen.  
-"?username=something" är en query-parameter.
+"http" är *schemat*.  
+"localhost:3000" är *authorityn*.  
+"/users" är *pathen*.  
+"?username=something" är en *queryn*.
 
-**På vilka tre sätt kan man skicka in parametrar i en HTTP-request? Ge exempel med curl.**   
-Path   
-Query  
-Fragment
+**På vilka tre sätt kan man skicka in parametrar i en HTTP-request? Ge exempel med curl.**
 
+Request med query-parameter:
+```
+curl "http://localhost:2000/students?name=Jonny" | jq
+```
+
+Request med path-parameter:
+```
+curl "http://localhost:2000/students" | jq
+```
+Request med header:
+```
+curl -X GET "http://localhost:2000/students?name=Jonny" -H "Content-Type: application/json" | jq
+```
 ## Feedback
-
-:fireworks:  
+Tycker att det gick väldigt fort första två dagarna , där vi fick väldigt mycket information att ta in. Sedan har tempot mattats av och jag har haft lite svårt att veta vad jag ska göra. Gärna lite korta teori-pass och sedan någon mindre övning på det som vi gått genom. Så hinner man ta in informationen och bearbeta den innan vi går vidare på nästa sak. Jobba mer i små iterationer :wink:
