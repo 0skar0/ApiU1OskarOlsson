@@ -30,7 +30,7 @@ När man surfar in på en webbsida skickar klienten (webbläsaren) en HTTP-förf
 
 **Beskriv HTTP-protokollets vanligaste metoder och vad de gör.**  
 **GET**: Förfrågan till servern där man frågar efter den utpekade filen/filerna.  
-**POST**: Skicka information till servern.  
+**POST**: Skapar ett nytt objekt som matchar schemat (om det finns ett schema).   
 **DELETE**: Raderar den specificerade användaren/inlägget eller vad det nu kan tänkas vara.  
 **PUT**: Skickar förfrågan till servern med ett specifikt URI. Om detta URI redan finns på servern kommer det att modifieras. Om detta URI inte finns kan servern skapa en resurs på detta URI.  
 **PATCH**: Skiljer sig från PUT genom att man kan ändra på delar av informationen i ett objekt. Om jag skickar endast skickar in ett nytt användarnamn (t.ex) kommer PATCH endast ändra på användarnamnet och låta övrig information vara som den var tidigare.  
@@ -42,8 +42,10 @@ När man surfar in på en webbsida skickar klienten (webbläsaren) en HTTP-förf
 "?username=something" är en query-parameter.
 
 **På vilka tre sätt kan man skicka in parametrar i en HTTP-request? Ge exempel med curl.**   
-Path  
+Path   
 Query  
 Fragment
 
 ## Feedback
+
+:fireworks:  
