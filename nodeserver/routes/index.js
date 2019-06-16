@@ -11,7 +11,6 @@ router.put('/students/:id', students.put);
 router.delete('/students/:id', students.deleteOneUser);
 
 router.get('/counter', counter.get)
-router.post('/counter', counter.post)
 router.put('/counter/:id', counter.put)
 router.get('/counter/:id', counter.getById)
 

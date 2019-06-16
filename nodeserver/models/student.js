@@ -1,13 +1,12 @@
 const mongoose = require('mongoose');
 
 const studentSchema = new mongoose.Schema({
-  name: String,
-  email: String,
-  address: {
-    gata: String,
-    postnummer: Number,
-    ort: String
-  }
+  username: String,
+  password: String,
+  likedPlayers: [{
+    playerId: Number,
+    name: String
+  }]
 })
 
 const Student = mongoose.model('Student', studentSchema);

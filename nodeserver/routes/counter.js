@@ -13,15 +13,6 @@ getById = (req, res, next) => {
   })
 }
 
-post = (req, res, next) => {
-  let query = { name: req.body.name };
-  req.models.Counter.findOneAndUpdate(query, {name: req.body.name, $inc: { count: 1 }},
-  ).then((user) => {
-    return res.status(201).send(user)
-  }).catch((error) => {
-    next(error)
-  })
-}
 
 put = (req, res, next) => {
   const plusOrMinus = req.body.count;
@@ -52,7 +43,6 @@ put = (req, res, next) => {
 
 module.exports = {
   get,
-  post,
   put,
   getById
 }

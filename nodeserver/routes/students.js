@@ -21,13 +21,12 @@ getById = (req, res, next) => {
 
 post = (req, res, next) => {
   req.models.Student.create({
-    name: req.body.name,
-    email: req.body.email,
-    address: {
-      gata: req.body.address.gata,
-      postnummer: req.body.address.postnummer,
-      ort: req.body.address.ort
-    }
+    username: req.body.username,
+    password: req.body.password,
+    likedPlayers: [{
+      playerId: req.body.likedPlayers.playerId,
+      name: req.body.likedPlayers.name
+    }]
   }).then((user) => {
     return res.status(201).send(user)
   }).catch((error) => {
